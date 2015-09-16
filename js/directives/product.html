@@ -1,5 +1,9 @@
 <div class="col-sm-3">
-  <p>{{item.name}} </p>
+  <p>
+    <a ui-sref = "products.show({ productId: {{item.id}} })">
+      {{item.name}}
+    </a>
+  </p>
   <p>Dept: {{item.categoryID}}</p>
   <p>
     <span class="glyphicon glyphicon-tags" aria-hidden="true">
