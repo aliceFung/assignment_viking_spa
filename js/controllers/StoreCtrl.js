@@ -4,6 +4,18 @@ storeApp.controller("StoreCtrl", ['$scope', 'productsService',
   $scope.products = productsService.getProducts();
   $scope.categories = productsService.getCategories();
   $scope.cart = {};
+  $scope.categorySelection = "";
+
+  $scope.productByCategory = function(item){
+    console.log('selected: '+ $scope.categorySelection);
+    if ($scope.categorySelection){
+      console.log('inside filter: ');
+      return (item.categoryID == categorySelection);
+    }else {
+      console.log('inside filter: everything');
+      return true;
+    }
+  };
 
   $scope.addToCart = function(item){
     console.log('adding item');
