@@ -2,8 +2,21 @@ app.factory('productsService', ['$http', function($http){
 
   var obj = {};
 
-  obj.getProducts = function(success, failure){
-    return $http.get('https://pacific-stream-9205.herokuapp.com/puppies.json').then(success, failure);
+  var products =[];
+
+  //make products
+  var faker = require('faker');
+  for(var i=0; i <20; i++){
+    var randomProduct = { name: faker.commerce.productName(),
+                          price: faker.commerce.price(),
+                          category: faker.commerce.department()};
+
+    products.push(randomProduct);
+  }
+
+
+  obj.getProducts = function(){
+    return products;
   };
 
 
