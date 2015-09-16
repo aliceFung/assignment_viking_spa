@@ -1,23 +1,22 @@
-app.factory('productsService', ['$http', function($http){
+storeApp.factory('productsService', ['$http', function($http){
 
   var obj = {};
 
-  var products =[];
+  // var products =[];
 
   //make products
-  var faker = require('faker');
-  for(var i=0; i <20; i++){
-    var randomProduct = { name: faker.commerce.productName(),
-                          price: faker.commerce.price(),
-                          category: faker.commerce.department()};
+  // for(var i=0; i <20; i++){
+  //   var randomProduct = { name: faker.commerce.productName(),
+  //                         price: faker.commerce.price(),
+  //                         category: faker.commerce.department()};
 
-    products.push(randomProduct);
-  }
+  //   products.push(randomProduct);
+  // }
 
 
-  obj.getProducts = function(){
-    return products;
-  };
+  // obj.getProducts = function(){
+  //   return products;
+  // };
 
 
   return obj;
