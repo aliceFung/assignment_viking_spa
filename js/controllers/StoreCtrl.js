@@ -1,38 +1,50 @@
 storeApp.controller("StoreCtrl", ['$scope', 'productsService',
                      function($scope, productsService){
 
-  $scope.products = [];
-  $scope.categories = [];
+  $scope.products = productsService.getProducts();
+  $scope.categories = productsService.getCategories();
+  $scope.cart = {};
 
-  //generate categories
-  var createCategories = function(){
-    var categories = [];
-    for(var i=0; i <5; i++){
-      var category = faker.commerce.department();
-      if ($scope.categories.indexOf(category) == -1){
-        $scope.categories.push(category);
-      } else {
-        i--; //redo category name generation
-      }
+  $scope.addToCart = function(item){
+    console.log('adding item');
+    if ($scope.cart[item]){
+      console.log('updating quantity');
+      $scope.cart[item]++;
+    } else {
+      console.log('new item to cart');
+      $scope.cart[item] = 1;
     }
   };
 
-  //generate products
-  var createProducts = function(){
-    for(var i=0; i <20; i++){
+  // //generate categories
+  // var createCategories = function(){
+  //   var categories = [];
+  //   for(var i=0; i <5; i++){
+  //     var category = faker.commerce.department();
+  //     if ($scope.categories.indexOf(category) == -1){
+  //       $scope.categories.push(category);
+  //     } else {
+  //       i--; //redo category name generation
+  //     }
+  //   }
+  // };
 
-      var categoryID = Math.floor(
-                      Math.random() * $scope.categories.length);
+  // //generate products
+  // var createProducts = function(){
+  //   for(var i=0; i <20; i++){
 
-      var randomProduct = { id:   i+1,
-                            name: faker.commerce.productName(),
-                            price: faker.commerce.price(),
-                            description: faker.lorem.sentence(),
-                            categoryID: categoryID};
+  //     var categoryID = Math.floor(
+  //                     Math.random() * $scope.categories.length);
+  //     var productID = id +1;
+  //     var randomProduct = { id:   productID,
+  //                           name: faker.commerce.productName(),
+  //                           price: faker.commerce.price(),
+  //                           description: faker.lorem.sentence(),
+  //                           categoryID: categoryID};
 
-      $scope.products.push(randomProduct);
-    }
-  };
+  //     $scope.products.push(randomProduct);
+  //   }
+  // };
 
 
 

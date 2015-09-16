@@ -1,0 +1,15 @@
+<div class="col-sm-3">
+  <p>{{item.name}} </p>
+  <p>Dept: {{item.categoryID}}</p>
+  <p>
+    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+    </span>  {{item.price | currency}}
+  </p>
+
+
+  <p>
+    <a href = "" ng-click="addToCart(item)">Add to Cart</a>
+  </p>
+
+  <br>
+</div>
