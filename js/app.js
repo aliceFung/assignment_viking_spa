@@ -25,3 +25,24 @@ storeApp.config(function($stateProvider, $urlRouterProvider){
 storeApp.run(function($rootScope){
   $rootScope.$on("$stateChangeError", console.log.bind(console));
 });
+
+storeApp.filter('productByCategory', ['productsService', function(productsService){
+
+  return function(items){
+
+    var filteredCats = [];
+    console.log(productsService.getCategory())
+
+    if (productsService.getCategory() === ""){
+      return items
+    } else {
+      for (var i = 0; i < items.length; i++){
+        if (items[i].categoryID == productsService.getCategory()){
+          filteredCats.push(items[i])
+        }
+      };
+      return filteredCats;
+    }
+
+  }
+}]);

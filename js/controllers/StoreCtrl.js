@@ -4,18 +4,28 @@ storeApp.controller("StoreCtrl", ['$scope', 'productsService',
   $scope.products = productsService.getProducts();
   $scope.categories = productsService.getCategories();
   $scope.cart = {};
-  $scope.categorySelection = "";
+  $scope.categorySelection = 0;
 
-  $scope.productByCategory = function(item){
-    console.log('selected: '+ $scope.categorySelection);
-    if ($scope.categorySelection){
-      console.log('inside filter: ');
-      return (item.categoryID == categorySelection);
-    }else {
-      console.log('inside filter: everything');
-      return true;
-    }
+  $scope.productByCategory = function(){
+    return function(item){
+      console.log('selected: '+ productsService.getCategory());
+      console.log('item: ' + item);
+      if (productsService.getCategory()){
+        console.log('inside filter: ');
+        return (item.categoryID == productsService.getCategory());
+      }else {
+        console.log('inside filter: everything');
+        return true;
+      }
+    }()
+
   };
+
+  //set category selection of productService
+  $scope.setCategorySelection = function(cat){
+    console.log("CHANGING")
+    productsService.setCategory(cat);
+  }
 
   $scope.addToCart = function(item){
     console.log('adding item');
