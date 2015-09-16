@@ -37,7 +37,8 @@ storeApp.factory('productsService', ['$http', function($http){
                             name: faker.commerce.productName(),
                             price: faker.commerce.price(),
                             description: faker.lorem.sentence(),
-                            categoryID: categoryID};
+                            categoryID: categoryID,
+                            image:  faker.image.imageUrl()};
 
       products.push(randomProduct);
     }

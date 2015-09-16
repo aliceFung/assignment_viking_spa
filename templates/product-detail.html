@@ -1,11 +1,16 @@
-params: {{params}}
-<br>
-p: {{productId}}
-<br>
-item: {{product}}
-<br>
+<div>
+
+  {{cart}}
 
 <h4> {{product.name}} </h4>
-{{product.price}}
-Dept: {{categories[product.categoryID].name}}
-{{product.description}}
+<p>{{product.price}} </p>
+<input type="number" name="quantity" ng-model="addQuantity">
+<button ng-click="addToCart(addQuantity)">Buy Now!</button>
+
+<p>Dept: {{categories[product.categoryID].name}}</p>
+<p>{{product.description}}</p>
+
+<br>
+<img src="{{product.image}}">
+
+</div>
