@@ -1,15 +1,14 @@
 <h2>{{categories}}</h2>
 <div class="row">
 
-  c: {{categorySelection}}
+  c: {{categorySelection}} {{search.categoryID}}
   <div class="col-md-4 text-center">
     <p>Filter by category:</p>
 
-    <select name="category" ng-model="categorySelection">
+    <select name="category" ng-model="search.categoryID">
       <option value="">No Category Selected</option>
 
       <option ng-repeat="category in categories" value='{{$index}}'>
-        {{category}}
       </option>
     </select>
 
@@ -19,7 +18,8 @@
 
 <hr>
 
-<div ng-repeat="item in products | filter : categoryID : categorySelection ">
+  {{search.categoryID}}
+<div ng-repeat="item in products | filter:search:strict">
 
   <product item = "item"></product>
 
