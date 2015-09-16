@@ -20,7 +20,8 @@ storeApp.config(function($stateProvider, $urlRouterProvider){
 
     .state('products.show', {
       url: '/:productId',
-      templateUrl: '../templates/product-detail.html'
+      templateUrl: '../templates/product-detail.html',
+      controller: 'ProductCtrl'
     });
 
 });
