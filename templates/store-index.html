@@ -1,6 +1,7 @@
 <h2>{{categories}}</h2>
 <div class="row">
 
+  c: {{categorySelection}}
   <div class="col-md-4 text-center">
     <p>Filter by category:</p>
 
@@ -18,7 +19,7 @@
 
 <hr>
 
-<div ng-repeat="item in products | filter: productByCategory()">
+<div ng-repeat="item in products | filter : categoryID : categorySelection ">
 
   <product item = "item"></product>
 
