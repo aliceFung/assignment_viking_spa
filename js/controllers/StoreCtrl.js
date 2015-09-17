@@ -3,30 +3,30 @@ storeApp.controller("StoreCtrl",
                   function($scope, productsService, cartService, $stateParams){
 
   console.log("success store ctrl");
+
+  //get info from services
   $scope.products = productsService.getProducts();
   $scope.categories = productsService.getCategories();
-  $scope.cart = cartService.listAll();
-  $scope.categorySelection = 0;
 
-  $scope.params = $stateParams;
-  $scope.productId = $stateParams.productId; //-1
-  $scope.product = $scope.products[2];
+  $scope.cart = cartService.listAll();
+
+  // // error: this doesn't match data binding on store-index
+  // $scope.categorySelection = 0;
+
+  // $scope.params = $stateParams;
+  // $scope.productId = $stateParams.productId; //-1
+  // $scope.product = $scope.products[2];
 
   $scope.cartTotal = cartService.getCartTotal();
 
   $scope.productByCategory = function(){
     return function(item){
-      console.log('selected: '+ productsService.getCategory());
-      console.log('item: ' + item);
       if (productsService.getCategory()){
-        console.log('inside filter: ');
         return (item.categoryID == productsService.getCategory());
       }else {
-        console.log('inside filter: everything');
         return true;
       }
     }();
-
   };
 
   //set category selection of productService

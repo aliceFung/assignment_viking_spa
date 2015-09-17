@@ -4,12 +4,12 @@ storeApp.factory('productsService', ['$http', function($http){
 
   var _products = [];
   var _categories =[];
-  var categorySelection = "";
+  var _categorySelection = "";
 
   console.log("success product service");
 
   //generate categories
-  var createCategories = function(){
+  var _createCategories = function(){
     for(var i=0; i <5; i++){
       var category = faker.commerce.department();
       if (_categories.indexOf(category) == -1){
@@ -20,21 +20,15 @@ storeApp.factory('productsService', ['$http', function($http){
     }
   };
 
-  obj.setCategory = function(cat){
-    categorySelection = cat;
-  };
-
-  obj.getCategory = function(){
-    return categorySelection;
-  };
-
   //generate products
-  var createProducts = function(){
+  var _createProducts = function(){
     for(var i=0; i <20; i++){
 
+      // get random category id
       var categoryID = Math.floor(
                       Math.random() * _categories.length);
-      var productID = i + 1;
+      var productID = i + 1; // id starts at 1
+
       var randomProduct = { id:   productID,
                             name: faker.commerce.productName(),
                             price: faker.commerce.price(),
@@ -47,6 +41,14 @@ storeApp.factory('productsService', ['$http', function($http){
   };
 
 
+  obj.setCategory = function(cat){
+    _categorySelection = cat;
+  };
+
+  obj.getCategory = function(){
+    return _categorySelection;
+  };
+
   obj.getProducts = function(){
     return _products;
   };
@@ -56,8 +58,8 @@ storeApp.factory('productsService', ['$http', function($http){
   };
 
   // run methods to create categories and products
-  createCategories();
-  createProducts();
+  _createCategories();
+  _createProducts();
 
   return obj;
 
