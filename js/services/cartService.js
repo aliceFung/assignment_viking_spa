@@ -1,26 +1,26 @@
 storeApp.factory('cartService', ['$http', function($http){
 
   var obj = {};
-  var contents = {};
+  var _contents = {};
   console.log("success cart service");
 
   obj.listAll = function(){
-    return contents;
+    return _contents;
   };
 
   obj.addItem = function(obj, qty){
     qty = qty || 1;
-    contents[obj.id] = [obj, qty];
+    _contents[obj.id] = [obj, qty];
   };
 
   obj.removeItem = function(obj){
-    delete contents[obj.id];
+    delete _contents[obj.id];
   };
 
   obj.getCartTotal = function(){
     var sum = 0;
-    Object.keys(contents).forEach(function (key) {
-      sum += contents[key][0].price * contents[key][1];
+    Object.keys(_contents).forEach(function (key) {
+      sum += _contents[key][0].price * _contents[key][1];
     });
     return sum;
   };

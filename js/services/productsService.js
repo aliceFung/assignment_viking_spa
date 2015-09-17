@@ -2,18 +2,18 @@ storeApp.factory('productsService', ['$http', function($http){
 
   var obj = {};
 
-  var products = [];
-  var categories =[];
+  var _products = [];
+  var _categories =[];
   var categorySelection = "";
 
-  console.log("success product service")
+  console.log("success product service");
 
   //generate categories
   var createCategories = function(){
     for(var i=0; i <5; i++){
       var category = faker.commerce.department();
-      if (categories.indexOf(category) == -1){
-        categories.push(category);
+      if (_categories.indexOf(category) == -1){
+        _categories.push(category);
       } else {
         i--; //redo category name generation if category name exists
       }
@@ -33,7 +33,7 @@ storeApp.factory('productsService', ['$http', function($http){
     for(var i=0; i <20; i++){
 
       var categoryID = Math.floor(
-                      Math.random() * categories.length);
+                      Math.random() * _categories.length);
       var productID = i + 1;
       var randomProduct = { id:   productID,
                             name: faker.commerce.productName(),
@@ -42,17 +42,17 @@ storeApp.factory('productsService', ['$http', function($http){
                             categoryID: categoryID,
                             image:  faker.image.imageUrl()};
 
-      products.push(randomProduct);
+      _products.push(randomProduct);
     }
   };
 
 
   obj.getProducts = function(){
-    return products;
+    return _products;
   };
 
   obj.getCategories = function(){
-    return categories;
+    return _categories;
   };
 
   // run methods to create categories and products
