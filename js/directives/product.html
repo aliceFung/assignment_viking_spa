@@ -12,7 +12,9 @@
 
 
   <p>
-    <a href = "" ng-click="addToCart(item)">Add to Cart</a>
+    <input type="number" name="quantity" ng-model="addQuantity">
+    <button ng-click="addToCart(addQuantity, item)">Add to Cart</button>
+
   </p>
 
   <br>

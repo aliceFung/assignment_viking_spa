@@ -35,8 +35,9 @@ storeApp.controller("StoreCtrl",
     productsService.setCategory(cat);
   };
 
-  $scope.addToCart = function(qty){
-    cartService.addItem($scope.product, qty);
+  $scope.addToCart = function(qty, item){
+    item = item || $scope.product ;
+    cartService.addItem(item, qty);
   };
 
   $scope.removeItem = function(item){
