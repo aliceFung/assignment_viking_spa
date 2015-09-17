@@ -36,7 +36,8 @@ storeApp.controller("StoreCtrl",
   };
 
   $scope.addToCart = function(qty, item){
-    console.log('adding');
+    // debugger
+    console.log(qty);
     item = item || $scope.product ;
     cartService.addItem(item, qty);
   };

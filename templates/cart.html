@@ -12,7 +12,7 @@
       <tr ng-repeat="item in cart">
         <td>{{item[0].id}}</td>
         <td>{{item[0].name}}</td>
-        <td><input type="number" value="item[1]"></td>
+        <td>{{item[1]}}</td>
         <td>{{item[1] * item[0].price | currency}}</td>
         <td><a href="" ng-click="removeItem(item)">Remove</a></td>
       </tr>
