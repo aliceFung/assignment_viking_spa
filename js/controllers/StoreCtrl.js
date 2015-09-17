@@ -1,10 +1,10 @@
 storeApp.controller("StoreCtrl",
-                  ['$scope', 'productsService', '$stateParams',
-                  function($scope, productsService, $stateParams){
+                  ['$scope', 'productsService', 'cartService','$stateParams',
+                  function($scope, productsService, cartService, $stateParams){
 
   $scope.products = productsService.getProducts();
   $scope.categories = productsService.getCategories();
-  $scope.cart = {};
+  $scope.cart = cartService.listAll();
   $scope.categorySelection = 0;
 
   $scope.params = $stateParams;
@@ -32,15 +32,8 @@ storeApp.controller("StoreCtrl",
     productsService.setCategory(cat);
   };
 
-  $scope.addToCart = function(item){
-    console.log('adding item');
-    if ($scope.cart[item]){
-      console.log('updating quantity');
-      $scope.cart[item]++;
-    } else {
-      console.log('new item to cart');
-      $scope.cart[item] = 1;
-    }
+  $scope.addToCart = function(qty){
+    cartService.addItem($scope.product, qty)
   };
 
   // //generate categories

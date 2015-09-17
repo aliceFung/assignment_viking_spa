@@ -24,13 +24,13 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Viking Store</a>
+        <a class="navbar-brand" ui-sref="products.index">Viking Store</a>
       </div>
 
       <div class="navbar-right">
-        <button type="button" class="btn btn-default btn-lg">
+        <a ui-sref='cart' class="btn btn-default btn-lg">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Your Cart
-        </button>
+        </a>
       </div>
 
     </div><!-- /.container-fluid -->
@@ -59,6 +59,7 @@
 
   <!-- services -->
   <script src="js/services/productsService.js"></script>
+  <script src="js/services/cartService.js"></script>
 
   <!-- controllers -->
   <script src="js/controllers/StoreCtrl.js"></script>

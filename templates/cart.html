@@ -1,0 +1,17 @@
+<div>
+  <span class="text-center"><h3>Cart</h3></span>
+  <table class="table table-striped">
+    <thead>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </thead>
+    <tbody ng-repeat="item in cart">
+      <tr>{{item[0].id}}</tr>
+      <tr>{{item[0].name}}</tr>
+      <tr>{{item[1]}}</tr>
+      <tr>{{item[1] * item[0].price | currency}}</tr>
+    </tbody>
+  </table>
+</div>

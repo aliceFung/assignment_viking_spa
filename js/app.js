@@ -22,6 +22,12 @@ storeApp.config(function($stateProvider, $urlRouterProvider){
       url: '/:productId',
       templateUrl: '../templates/product-detail.html',
       controller: 'ProductCtrl'
+    })
+
+    .state('cart', {
+      url: '/cart',
+      templateUrl: '../templates/cart.html',
+      controller: 'StoreCtrl'
     });
 
 });
