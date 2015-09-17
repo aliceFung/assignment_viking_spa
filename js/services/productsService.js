@@ -6,6 +6,8 @@ storeApp.factory('productsService', ['$http', function($http){
   var categories =[];
   var categorySelection = "";
 
+  console.log("success product service")
+
   //generate categories
   var createCategories = function(){
     for(var i=0; i <5; i++){
