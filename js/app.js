@@ -43,7 +43,6 @@ storeApp.filter('productByCategory', ['productsService', function(productsServic
   return function(items){
 
     var filteredCats = [];
-    console.log(productsService.getCategory())
 
     if (productsService.getCategory() === ""){
       return items

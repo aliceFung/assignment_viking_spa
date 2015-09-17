@@ -13,9 +13,10 @@ storeApp.controller("ProductCtrl",
   $scope.productId = $stateParams.productId -1 ; //-1
   $scope.product = $scope.products[$scope.productId];
 
-  $scope.addToCart = function(qty){
+  $scope.addToCart = function(qty, item){
     console.log('inside p');
-    cartService.addItem($scope.product, qty);
+    item = item || $scope.product
+    cartService.addItem(item, qty);
   };
 
 }]);

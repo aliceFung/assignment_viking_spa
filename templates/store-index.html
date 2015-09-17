@@ -1,14 +1,12 @@
-<h2>{{categories}}</h2>
 <div class="row">
 
-  c: {{categorySelection}} {{search.categoryID}}
-  <div class="col-md-4 text-center">
+  <div class="col-md-12 text-center">
     <p>Filter by category:</p>
 
     <select name="category" ng-model="categorySelection" ng-change="setCategorySelection(categorySelection)" >
       <option value="">No Category Selected</option>
 
-      <option ng-repeat="category in categories" value='{{$index}}'>
+      <option ng-repeat="category in categories" value='{{$index}}'>{{category}}
       </option>
     </select>
 
@@ -22,6 +20,6 @@
 <div ng-repeat="item in products | productByCategory ">
 
 
-  <product item = "item"></product>
+  <product add-to-cart='addToCart(item)' item = "item"></product>
 
 </div>
